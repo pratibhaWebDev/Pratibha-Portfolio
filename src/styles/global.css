@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  /* Core Brand Colors */
+  --color-primary: #F9FAFB;      /* white */
+  --color-secondary: #9333EA;    /* Purple */
+  --color-accent: #FACC15;       /* Yellow */
+
+  /* Dark Theme Backgrounds */
+  --bg-main: #111827;            /* Deep dark */
+  --bg-surface: #1F2937;         /* Slightly lighter panels */
+  --bg-hover: #374151;           /* Hover states */
+
+  /* Text Colors */
+  --text-primary: #F9FAFB;       /* Light text */
+  --text-secondary: #9CA3AF;     /* Muted text */
+
+  /* Font Size */
+    --font-heading: 50px;
+
+  /* Font Family */
+  --font-sans: "Inter", "Poppins", sans-serif;
+  --font-heading: "Poppins", "Inter", sans-serif;
+}
