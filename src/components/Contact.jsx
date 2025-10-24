@@ -88,27 +88,27 @@ const Contact = () => {
   ]
 
   return (
-    <div className="min-h-screen py-20 px-8">
+    <div className="min-h-screen py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Get In <span className="text-[var(--color-secondary)]">Touch</span>
           </h2>
-          <p className="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
             Have a project in mind or just want to say hello? I'd love to hear from you!
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           
           {/* Contact Information */}
           <div>
-            <div className="bg-[var(--bg-surface)] p-8 rounded-2xl shadow-lg">
+            <div className="bg-[var(--bg-surface)] p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg">
               <div className="flex items-center gap-3 mb-6">
                 <img src={contactIcon} alt="Contact" className="w-8 h-8" />
-                <h3 className="text-2xl font-bold text-[var(--color-secondary)]">Let's Connect</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-secondary)]">Let's Connect</h3>
               </div>
               
               <p className="text-[var(--text-secondary)] mb-8 leading-relaxed">
@@ -167,10 +167,10 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="bg-[var(--bg-surface)] p-8 rounded-2xl shadow-lg">
-              <h3 className="text-2xl font-bold text-[var(--color-secondary)] mb-6">Send a Message</h3>
+            <form onSubmit={handleSubmit} className="bg-[var(--bg-surface)] p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg">
+              <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-secondary)] mb-4 sm:mb-6">Send a Message</h3>
               
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-[var(--color-primary)] font-semibold mb-2">
                     Your Name

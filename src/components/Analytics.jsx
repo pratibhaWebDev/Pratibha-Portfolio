@@ -66,32 +66,32 @@ const Analytics = () => {
   };
 
   return (
-    <div className="min-h-screen py-20 px-8">
+    <div className="min-h-screen py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Development <span className="text-[var(--color-secondary)]">Analytics</span>
           </h2>
-          <p className="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
             Track record of continuous learning and development achievements
           </p>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
           {stats.map((stat, index) => (
-            <div key={index} className="bg-[var(--bg-surface)] p-6 rounded-2xl shadow-lg text-center 
+            <div key={index} className="bg-[var(--bg-surface)] p-4 sm:p-6 rounded-2xl shadow-lg text-center 
               hover:shadow-xl transition-shadow duration-300">
-              <div className="text-4xl mb-4">{stat.icon}</div>
-              <div className="text-3xl font-bold text-[var(--color-secondary)] mb-2">
+              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{stat.icon}</div>
+              <div className="text-2xl sm:text-3xl font-bold text-[var(--color-secondary)] mb-2">
                 {stat.value}
               </div>
-              <div className="text-lg font-semibold text-[var(--color-primary)] mb-1">
+              <div className="text-base sm:text-lg font-semibold text-[var(--color-primary)] mb-1">
                 {stat.label}
               </div>
-              <div className="text-sm text-[var(--text-secondary)]">
+              <div className="text-xs sm:text-sm text-[var(--text-secondary)]">
                 {stat.description}
               </div>
             </div>

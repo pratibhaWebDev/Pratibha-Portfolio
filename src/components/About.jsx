@@ -3,33 +3,33 @@ import aboutIcon from '../assets/about.png'
 
 const About = () => {
   return (
-    <div className="min-h-screen py-20 px-8">
+    <div className="min-h-screen py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             About <span className="text-[var(--color-secondary)]">Me</span>
           </h2>
-          <p className="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
             Get to know more about my journey, skills, and passion for development
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
           {/* Left side - Image */}
-          <div className="flex justify-center">
-            <div className="w-80 h-80 bg-gradient-to-br from-[var(--color-secondary)] to-[var(--color-accent)] 
+          <div className="flex justify-center order-2 lg:order-1">
+            <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 bg-gradient-to-br from-[var(--color-secondary)] to-[var(--color-accent)] 
               rounded-2xl flex items-center justify-center shadow-2xl">
-              <img src={aboutIcon} alt="About Me" className="w-40 h-40 object-contain opacity-80" />
+              <img src={aboutIcon} alt="About Me" className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-contain opacity-80" />
             </div>
           </div>
           
           {/* Right side - Content */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6 order-1 lg:order-2">
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-[var(--color-secondary)]">My Story</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[var(--color-secondary)]">My Story</h3>
               <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
                 I'm a passionate Full Stack Developer with a keen focus on AI integration and innovation. 
                 My journey started with traditional web development, but I've embraced the AI revolution, 

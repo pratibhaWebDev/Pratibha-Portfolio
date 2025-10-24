@@ -91,8 +91,8 @@ const Navbar = () => {
 
   return (
     <motion.div 
-      className="navbar-container flex justify-between items-center px-4 lg:px-8 py-3 lg:py-4 
-        bg-[var(--bg-surface)] bg-opacity-95 backdrop-blur-lg shadow-xl rounded-2xl mx-4 lg:mx-8 mt-4
+      className="navbar-container flex justify-between items-center px-3 sm:px-4 lg:px-8 py-2 sm:py-3 lg:py-4 
+        bg-[var(--bg-surface)] bg-opacity-95 backdrop-blur-lg shadow-xl rounded-xl sm:rounded-2xl mx-2 sm:mx-4 lg:mx-8 mt-2 sm:mt-4
         border border-[var(--bg-hover)]"
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -108,7 +108,7 @@ const Navbar = () => {
       >
         {/* Logo Icon */}
         <motion.div 
-          className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-[var(--color-secondary)] to-purple-600 
+          className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-[var(--color-secondary)] to-purple-600 
             rounded-lg flex items-center justify-center shadow-lg"
           animate={{ 
             rotate: [0, 5, -5, 0],
@@ -120,13 +120,13 @@ const Navbar = () => {
             ease: 'easeInOut' 
           }}
         >
-          <span className="text-white font-bold text-sm lg:text-base">P</span>
+          <span className="text-white font-bold text-xs sm:text-sm lg:text-base">P</span>
         </motion.div>
         
         {/* Brand Text */}
         <div className="flex flex-col">
           <motion.h1 
-            className="text-lg lg:text-xl font-bold bg-gradient-to-r from-[var(--color-secondary)] 
+            className="text-sm sm:text-lg lg:text-xl font-bold bg-gradient-to-r from-[var(--color-secondary)] 
               via-purple-600 to-[var(--color-secondary)] bg-clip-text text-transparent
               tracking-tight leading-none"
             animate={{ 

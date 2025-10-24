@@ -4,8 +4,8 @@ import houseIcon from '../assets/house.png'
 
 const Home = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center px-8">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
         
         {/* Left side - Text content */}
         <motion.div 
@@ -16,7 +16,7 @@ const Home = () => {
         >
           <div className="space-y-4">
             <motion.h1 
-              className="text-5xl lg:text-6xl font-bold leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -42,7 +42,7 @@ const Home = () => {
               </motion.span>
             </motion.h1>
             <motion.h2 
-              className="text-2xl lg:text-3xl text-[var(--text-secondary)]"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[var(--text-secondary)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -52,7 +52,7 @@ const Home = () => {
           </div>
           
           <motion.p 
-            className="text-lg text-[var(--text-secondary)] leading-relaxed max-w-lg"
+            className="text-sm sm:text-base md:text-lg text-[var(--text-secondary)] leading-relaxed max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
@@ -63,15 +63,15 @@ const Home = () => {
           </motion.p>
           
           <motion.div 
-            className="flex gap-4 pt-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
           >
             <motion.button 
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 bg-[var(--color-secondary)] text-white rounded-lg 
-              hover:bg-purple-700 transition-colors duration-300 font-semibold"
+              className="px-6 sm:px-8 py-3 bg-[var(--color-secondary)] text-white rounded-lg 
+              hover:bg-purple-700 transition-colors duration-300 font-semibold text-sm sm:text-base"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -79,8 +79,8 @@ const Home = () => {
             </motion.button>
             <motion.button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 border-2 border-[var(--color-secondary)] text-[var(--color-secondary)] 
-              rounded-lg hover:bg-[var(--color-secondary)] hover:text-white transition-colors duration-300 font-semibold"
+              className="px-6 sm:px-8 py-3 border-2 border-[var(--color-secondary)] text-[var(--color-secondary)] 
+              rounded-lg hover:bg-[var(--color-secondary)] hover:text-white transition-colors duration-300 font-semibold text-sm sm:text-base"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -91,13 +91,13 @@ const Home = () => {
         
         {/* Right side - Profile image placeholder */}
         <motion.div 
-          className="flex justify-center lg:justify-end"
+          className="flex justify-center lg:justify-end mt-8 lg:mt-0"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <motion.div 
-            className="w-80 h-80 bg-gradient-to-br from-[var(--color-secondary)] to-[var(--color-accent)] 
+            className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-[var(--color-secondary)] to-[var(--color-accent)] 
               rounded-full flex items-center justify-center shadow-2xl"
             animate={{ 
               y: [0, -10, 0],
@@ -112,7 +112,7 @@ const Home = () => {
             <motion.img 
               src={houseIcon} 
               alt="Profile" 
-              className="w-40 h-40 object-contain opacity-80"
+              className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain opacity-80"
               animate={{ 
                 scale: [1, 1.05, 1],
                 rotate: [0, 5, 0, -5, 0]

@@ -73,46 +73,46 @@ const Project = () => {
   }
 
   return (
-    <div className="min-h-screen py-20 px-8">
+    <div className="min-h-screen py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             My <span className="text-[var(--color-secondary)]">Projects</span>
           </h2>
-          <p className="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
             Here are some of the projects I've worked on that showcase my skills and experience
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="bg-[var(--bg-surface)] p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div key={index} className="bg-[var(--bg-surface)] p-4 sm:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
               
               {/* Project Header */}
-              <div className="flex items-start justify-between mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-2 sm:gap-0">
                 <div className="flex items-center gap-3">
-                  <img src={projectIcon} alt="Project" className="w-8 h-8" />
-                  <h3 className="text-xl font-bold text-[var(--color-primary)]">{project.title}</h3>
+                  <img src={projectIcon} alt="Project" className="w-6 h-6 sm:w-8 sm:h-8" />
+                  <h3 className="text-lg sm:text-xl font-bold text-[var(--color-primary)]">{project.title}</h3>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-xs font-semibold text-white ${getStatusColor(project.status)}`}>
+                <span className={`px-3 py-1 rounded-full text-xs font-semibold text-white ${getStatusColor(project.status)} self-start sm:self-auto`}>
                   {project.status}
                 </span>
               </div>
 
               {/* Project Description */}
-              <p className="text-[var(--text-secondary)] mb-4 leading-relaxed">
+              <p className="text-sm sm:text-base text-[var(--text-secondary)] mb-4 leading-relaxed">
                 {project.description}
               </p>
 
               {/* Technologies */}
               <div className="mb-4">
-                <h4 className="text-sm font-semibold text-[var(--color-secondary)] mb-2">Technologies:</h4>
-                <div className="flex flex-wrap gap-2">
+                <h4 className="text-xs sm:text-sm font-semibold text-[var(--color-secondary)] mb-2">Technologies:</h4>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="px-3 py-1 bg-[var(--bg-hover)] text-[var(--text-primary)] 
+                    <span key={techIndex} className="px-2 sm:px-3 py-1 bg-[var(--bg-hover)] text-[var(--text-primary)] 
                       rounded-full text-xs font-medium">
                       {tech}
                     </span>

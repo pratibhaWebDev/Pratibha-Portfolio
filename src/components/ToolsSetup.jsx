@@ -54,48 +54,48 @@ const ToolsSetup = () => {
   ];
 
   return (
-    <div className="py-16 px-8">
+    <div className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
         <motion.div 
-          className="text-center mb-12"
+          className="text-center mb-10 sm:mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Tools & <span className="text-[var(--color-secondary)]">Setup</span>
           </h2>
-          <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
             My AI-enhanced development environment
           </p>
         </motion.div>
 
         {/* Tools Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-12">
           {categories.map((category, index) => (
             <motion.div 
               key={index} 
-              className="bg-[var(--bg-surface)] p-6 rounded-2xl shadow-lg 
+              className="bg-[var(--bg-surface)] p-4 sm:p-6 rounded-2xl shadow-lg 
                 hover:shadow-xl transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-2xl">{category.icon}</span>
-                <h3 className="text-lg font-bold text-[var(--color-primary)]">
+              <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                <span className="text-xl sm:text-2xl">{category.icon}</span>
+                <h3 className="text-base sm:text-lg font-bold text-[var(--color-primary)]">
                   {category.title}
                 </h3>
               </div>
               
-              <div className="space-y-3">
+              <div className="space-y-2 sm:space-y-3">
                 {category.tools.map((tool, toolIndex) => (
                   <div key={toolIndex}>
                     <div className="flex justify-between items-center mb-1">
-                      <span className="font-medium text-[var(--color-primary)] text-sm">
+                      <span className="font-medium text-[var(--color-primary)] text-xs sm:text-sm">
                         {tool.name}
                       </span>
                       <span className="text-xs text-[var(--color-secondary)]">

@@ -46,32 +46,32 @@ const Skills = () => {
   ]
 
   return (
-    <div className="min-h-screen py-20 px-8">
+    <div className="min-h-screen py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             My <span className="text-[var(--color-secondary)]">Skills</span>
           </h2>
-          <p className="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
             Technologies and tools I work with to bring ideas to life
           </p>
         </div>
 
         {/* Skills grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
           {skillCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="bg-[var(--bg-surface)] p-6 rounded-2xl shadow-lg">
-              <h3 className="text-xl font-bold mb-6 text-[var(--color-secondary)]">
+            <div key={categoryIndex} className="bg-[var(--bg-surface)] p-4 sm:p-6 rounded-2xl shadow-lg">
+              <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-[var(--color-secondary)]">
                 {category.title}
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex}>
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-[var(--text-primary)]">{skill.name}</span>
-                      <span className="text-[var(--text-secondary)]">{skill.level}%</span>
+                      <span className="text-[var(--text-primary)] text-sm sm:text-base">{skill.name}</span>
+                      <span className="text-[var(--text-secondary)] text-sm sm:text-base">{skill.level}%</span>
                     </div>
                     <div className="w-full bg-[var(--bg-hover)] rounded-full h-2">
                       <div 

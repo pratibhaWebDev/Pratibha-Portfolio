@@ -33,34 +33,34 @@ const Footer = () => {
 
   return (
     <footer className="bg-[var(--bg-surface)] border-t border-[var(--bg-hover)]">
-      <div className="max-w-6xl mx-auto px-8 py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12">
         
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8">
           
           {/* Brand Section */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold text-[var(--color-secondary)] mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-secondary)] mb-4">
               Pratibha Yadav
             </h3>
-            <p className="text-[var(--text-secondary)] leading-relaxed mb-6 max-w-md">
+            <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed mb-6 max-w-md">
               Full Stack Developer passionate about creating innovative web solutions 
               using modern technologies and AI-assisted development tools.
             </p>
             
             {/* Social Links */}
-            <div className="flex gap-3">
+            <div className="flex gap-2 sm:gap-3">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
                   target={social.href.startsWith('mailto:') ? '_self' : '_blank'}
                   rel={social.href.startsWith('mailto:') ? '' : 'noopener noreferrer'}
-                  className="w-10 h-10 bg-[var(--bg-hover)] rounded-lg flex items-center justify-center 
+                  className="w-8 h-8 sm:w-10 sm:h-10 bg-[var(--bg-hover)] rounded-lg flex items-center justify-center 
                     hover:bg-[var(--color-secondary)] transition-colors duration-300 group"
                   aria-label={social.name}
                 >
-                  <span className="text-[var(--text-secondary)] group-hover:text-white font-bold text-sm">
+                  <span className="text-[var(--text-secondary)] group-hover:text-white font-bold text-xs sm:text-sm">
                     {social.icon}
                   </span>
                 </a>
