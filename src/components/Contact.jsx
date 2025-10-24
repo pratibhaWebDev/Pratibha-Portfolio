@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import contactIcon from '../assets/contact-information.png'
+import AnimatedLoader from './AnimatedLoader'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +10,8 @@ const Contact = () => {
     subject: '',
     message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success', 'error', null
 
   const handleChange = (e) => {
     setFormData({
@@ -16,12 +20,48 @@ const Contact = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    // You can integrate with a form service like Formspree, EmailJS, etc.
-    alert('Thank you for your message! I\'ll get back to you soon.')
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+    
+    try {
+      // Send data to backend API
+      console.log('Sending data to backend:', formData)
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      console.log('Response status:', response.status)
+      const result = await response.json()
+      console.log('Response data:', result)
+
+      if (result.success) {
+        // Reset form on success
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        })
+        setSubmitStatus('success')
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => setSubmitStatus(null), 5000)
+      } else {
+        setSubmitStatus('error')
+        setTimeout(() => setSubmitStatus(null), 5000)
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setSubmitStatus('error')
+      setTimeout(() => setSubmitStatus(null), 5000)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -42,7 +82,7 @@ const Contact = () => {
     },
     {
       label: "LinkedIn",
-      value: "linkedin.com/in/pratibhayadav",
+      value: "linkedin.com/in/pratibhayadav28/",
       link: "https://www.linkedin.com/in/pratibhayadav28/"
     }
   ]
@@ -122,7 +162,11 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <form onSubmit={handleSubmit} className="bg-[var(--bg-surface)] p-8 rounded-2xl shadow-lg">
               <h3 className="text-2xl font-bold text-[var(--color-secondary)] mb-6">Send a Message</h3>
               
@@ -199,16 +243,59 @@ const Contact = () => {
                   />
                 </div>
 
-                <button
+                <motion.button
                   type="submit"
+                  disabled={isSubmitting}
                   className="w-full px-6 py-3 bg-[var(--color-secondary)] text-white rounded-lg 
-                    hover:bg-purple-700 transition-colors duration-300 font-semibold"
+                    hover:bg-purple-700 transition-colors duration-300 font-semibold
+                    disabled:opacity-50 disabled:cursor-not-allowed"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  Send Message
-                </button>
+                  {isSubmitting ? (
+                    <div className="flex items-center justify-center gap-2">
+                      <AnimatedLoader size="small" color="white" />
+                      <span>Sending...</span>
+                    </div>
+                  ) : (
+                    'Send Message'
+                  )}
+                </motion.button>
               </div>
+              
+              {/* Status Messages */}
+              <AnimatePresence>
+                {submitStatus && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className={`mt-4 p-4 rounded-lg ${
+                      submitStatus === 'success' 
+                        ? 'bg-green-100 text-green-800 border border-green-200' 
+                        : 'bg-red-100 text-red-800 border border-red-200'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                        className={`w-4 h-4 rounded-full ${
+                          submitStatus === 'success' ? 'bg-green-500' : 'bg-red-500'
+                        }`}
+                      />
+                      <span className="font-medium">
+                        {submitStatus === 'success' 
+                          ? 'Message sent successfully! I\'ll get back to you soon.' 
+                          : 'Sorry, there was an error sending your message. Please try again.'
+                        }
+                      </span>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

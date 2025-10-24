@@ -1,65 +1,33 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const ToolsSetup = () => {
   const categories = [
     {
-      title: "AI Development Tools",
+      title: "AI Development",
       icon: "🤖",
       tools: [
-        { name: "GitHub Copilot", description: "AI pair programming assistant", proficiency: 90 },
-        { name: "ChatGPT", description: "Code review and problem solving", proficiency: 85 },
-        { name: "Claude AI", description: "Technical documentation and planning", proficiency: 80 },
-        { name: "Tabnine", description: "Intelligent code completion", proficiency: 70 }
+        { name: "GitHub Copilot", proficiency: 90 },
+        { name: "ChatGPT", proficiency: 85 },
+        { name: "Claude AI", proficiency: 80 }
       ]
     },
     {
-      title: "Development Environment",
+      title: "Development",
       icon: "💻",
       tools: [
-        { name: "VS Code", description: "Primary code editor with AI extensions", proficiency: 95 },
-        { name: "Terminal/iTerm2", description: "Command line interface", proficiency: 85 },
-        { name: "Git/GitHub", description: "Version control and collaboration", proficiency: 90 },
-        { name: "Figma", description: "Design and prototyping", proficiency: 75 }
+        { name: "VS Code", proficiency: 95 },
+        { name: "React.js", proficiency: 80 },
+        { name: "Node.js", proficiency: 75 }
       ]
     },
     {
-      title: "Frontend Technologies",
-      icon: "🎨",
-      tools: [
-        { name: "React.js", description: "Component-based UI development", proficiency: 80 },
-        { name: "Tailwind CSS", description: "Utility-first CSS framework", proficiency: 85 },
-        { name: "Vite", description: "Fast build tool and dev server", proficiency: 80 },
-        { name: "Next.js", description: "React framework for production", proficiency: 60 }
-      ]
-    },
-    {
-      title: "Backend & Database",
-      icon: "⚙️",
-      tools: [
-        { name: "Node.js", description: "JavaScript runtime for backend", proficiency: 75 },
-        { name: "Express.js", description: "Web application framework", proficiency: 70 },
-        { name: "MySQL", description: "Relational database management", proficiency: 75 },
-        { name: "Postman", description: "API development and testing", proficiency: 80 }
-      ]
-    },
-    {
-      title: "Learning & Research",
+      title: "Learning",
       icon: "📚",
       tools: [
-        { name: "YouTube/Tutorials", description: "Video learning and walkthroughs", proficiency: 90 },
-        { name: "Documentation", description: "Official docs and guides", proficiency: 85 },
-        { name: "Stack Overflow", description: "Problem solving and community", proficiency: 80 },
-        { name: "Dev.to/Medium", description: "Technical articles and insights", proficiency: 75 }
-      ]
-    },
-    {
-      title: "Productivity & Organization",
-      icon: "📋",
-      tools: [
-        { name: "Notion", description: "Note-taking and project planning", proficiency: 85 },
-        { name: "Todoist", description: "Task and goal management", proficiency: 80 },
-        { name: "Time Tracking", description: "Learning hours monitoring", proficiency: 70 },
-        { name: "Discord/Communities", description: "Developer community engagement", proficiency: 75 }
+        { name: "Documentation", proficiency: 85 },
+        { name: "YouTube", proficiency: 90 },
+        { name: "Stack Overflow", proficiency: 80 }
       ]
     }
   ];
@@ -67,123 +35,126 @@ const ToolsSetup = () => {
   const workflowSteps = [
     {
       step: 1,
-      title: "Project Planning",
-      description: "Use AI to brainstorm ideas and create project roadmaps",
-      tools: ["ChatGPT", "Notion", "Figma"]
+      title: "Plan",
+      description: "AI-powered project planning",
+      tools: ["ChatGPT", "Figma"]
     },
     {
       step: 2,
-      title: "Development Setup",
-      description: "Configure development environment with AI assistance",
-      tools: ["VS Code", "GitHub Copilot", "Git"]
+      title: "Code",
+      description: "AI-assisted development",
+      tools: ["Copilot", "VS Code"]
     },
     {
       step: 3,
-      title: "Coding & Building",
-      description: "Write code with AI pair programming and intelligent suggestions",
-      tools: ["GitHub Copilot", "Tabnine", "React/Node.js"]
-    },
-    {
-      step: 4,
-      title: "Testing & Debugging",
-      description: "Use AI to help identify and fix issues",
-      tools: ["AI Debugging", "Postman", "Browser DevTools"]
-    },
-    {
-      step: 5,
-      title: "Documentation",
-      description: "Create comprehensive documentation with AI assistance",
-      tools: ["Claude AI", "GitHub", "Notion"]
-    },
-    {
-      step: 6,
-      title: "Deployment & Learning",
-      description: "Deploy projects and document learning outcomes",
-      tools: ["Vite", "GitHub Pages", "Learning Journal"]
+      title: "Deploy",
+      description: "Build and deploy projects",
+      tools: ["Git", "Vite"]
     }
   ];
 
   return (
-    <div className="min-h-screen py-20 px-8">
+    <div className="py-16 px-8">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
             Tools & <span className="text-[var(--color-secondary)]">Setup</span>
           </h2>
-          <p className="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
-            My development environment optimized for AI-enhanced productivity and learning
+          <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+            My AI-enhanced development environment
           </p>
-        </div>
+        </motion.div>
 
         {/* Tools Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {categories.map((category, index) => (
-            <div key={index} className="bg-[var(--bg-surface)] p-6 rounded-2xl shadow-lg 
-              hover:shadow-xl transition-shadow duration-300">
-              
-              <div className="flex items-center gap-3 mb-6">
+            <motion.div 
+              key={index} 
+              className="bg-[var(--bg-surface)] p-6 rounded-2xl shadow-lg 
+                hover:shadow-xl transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
+            >
+              <div className="flex items-center gap-3 mb-4">
                 <span className="text-2xl">{category.icon}</span>
-                <h3 className="text-xl font-bold text-[var(--color-primary)]">
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">
                   {category.title}
                 </h3>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {category.tools.map((tool, toolIndex) => (
                   <div key={toolIndex}>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold text-[var(--color-primary)]">
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="font-medium text-[var(--color-primary)] text-sm">
                         {tool.name}
                       </span>
-                      <span className="text-sm text-[var(--color-secondary)]">
+                      <span className="text-xs text-[var(--color-secondary)]">
                         {tool.proficiency}%
                       </span>
                     </div>
-                    <p className="text-sm text-[var(--text-secondary)] mb-2">
-                      {tool.description}
-                    </p>
-                    <div className="w-full bg-[var(--bg-hover)] rounded-full h-2">
-                      <div 
+                    <div className="w-full bg-[var(--bg-hover)] rounded-full h-1.5">
+                      <motion.div 
                         className="bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-accent)] 
-                          h-2 rounded-full transition-all duration-300"
-                        style={{ width: `${tool.proficiency}%` }}
-                      ></div>
+                          h-1.5 rounded-full"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${tool.proficiency}%` }}
+                        transition={{ duration: 1, delay: toolIndex * 0.1 }}
+                      />
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* AI-Enhanced Workflow */}
-        <div className="bg-[var(--bg-surface)] p-8 rounded-2xl shadow-lg">
-          <h3 className="text-3xl font-bold text-center mb-8 text-[var(--color-secondary)]">
-            AI-Enhanced Development Workflow
+        <motion.div 
+          className="bg-[var(--bg-surface)] p-6 rounded-2xl shadow-lg"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <h3 className="text-2xl font-bold text-center mb-6 text-[var(--color-secondary)]">
+            AI-Enhanced Workflow
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {workflowSteps.map((workflow, index) => (
-              <div key={index} className="bg-[var(--bg-hover)] p-6 rounded-xl 
-                hover:bg-[var(--bg-main)] transition-colors duration-300">
-                
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 bg-[var(--color-secondary)] rounded-full 
-                    flex items-center justify-center text-white font-bold">
+              <motion.div 
+                key={index} 
+                className="bg-[var(--bg-hover)] p-4 rounded-xl 
+                  hover:bg-[var(--bg-main)] transition-colors duration-300"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-6 h-6 bg-[var(--color-secondary)] rounded-full 
+                    flex items-center justify-center text-white font-bold text-sm">
                     {workflow.step}
                   </div>
-                  <h4 className="font-bold text-[var(--color-primary)]">
+                  <h4 className="font-bold text-[var(--color-primary)] text-sm">
                     {workflow.title}
                   </h4>
                 </div>
                 
-                <p className="text-[var(--text-secondary)] mb-4">
+                <p className="text-[var(--text-secondary)] text-xs mb-3">
                   {workflow.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1">
                   {workflow.tools.map((tool, toolIndex) => (
                     <span key={toolIndex} className="px-2 py-1 bg-[var(--color-secondary)] 
                       text-white text-xs rounded-full">
@@ -191,10 +162,10 @@ const ToolsSetup = () => {
                     </span>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
